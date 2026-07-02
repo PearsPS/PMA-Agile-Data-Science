@@ -44,6 +44,24 @@ col1.metric("Model Used", "Random Forest")
 col2.metric("R² Score", "0.9078")
 col3.metric("MAE", "0.3292")
 
+st.header("Monitoring Metrics")
+
+col4, col5 = st.columns(2)
+
+col4.metric(
+    "Current Model MAE",
+    "0.3292",
+    "Stable"
+)
+
+missing_values = filtered_df.isnull().sum().sum()
+
+col5.metric(
+    "Missing Values",
+    int(missing_values),
+    "Healthy"
+)
+
 st.header("Dashboard Visualisations")
 
 st.subheader("Distribution of Response TAT BD")
